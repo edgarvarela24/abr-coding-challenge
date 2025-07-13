@@ -1,14 +1,11 @@
-import { fetchFishData } from '../services/api';
 import {
   calculateRegionStats,
   groupFishByRegion,
 } from '../utils/dataProcessing';
+import { createMemo } from 'solid-js';
 import Navigation from './Navigation';
-import { createMemo, createResource } from 'solid-js';
-import { A } from '@solidjs/router';
 
-const Home = () => {
-  const [fishData] = createResource(fetchFishData);
+const Home = ({ fishData }) => {
   const regionStats = createMemo(() => {
     if (!fishData()) return [];
     const grouped = groupFishByRegion(fishData());
@@ -16,7 +13,7 @@ const Home = () => {
   });
   return (
     <div>
-      <Navigation />
+      <Navigation fishData={fishData} />
       <main>
         <h1>Select a Region</h1>
         <p>
@@ -27,15 +24,12 @@ const Home = () => {
           <div class="regions-grid">
             <For each={regionStats()}>
               {(region) => (
-                <A
-                  href={`/region/${encodeURIComponent(region.name)}`}
-                  class="region-card"
-                >
+                <div class="region-item">
                   <h2>{region.name}</h2>
                   <p>Average Calories: {region.avgCalories.toFixed(1)}</p>
                   <p>Average Fat: {region.avgFat.toFixed(2)}g</p>
                   <p>{region.fishCount} fish species</p>
-                </A>
+                </div>
               )}
             </For>
           </div>
