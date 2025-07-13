@@ -15,9 +15,10 @@ const Home = ({ fishData }) => {
     <div>
       <Navigation fishData={fishData} />
       <main>
-        <h1>Select a Region</h1>
+        <h1>Fish Nutrition by Region</h1>
         <p>
-          Choose the best region for ABR headquarters based on fish nutrition
+          Average calories and fat content per serving for each NOAA Fisheries
+          region
         </p>
 
         <Show when={!fishData.loading} fallback={<div>Loading...</div>}>
