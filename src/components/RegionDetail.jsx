@@ -9,12 +9,12 @@ import {
 
 const RegionDetail = ({ fishData }) => {
   const params = useParams();
-  const regionName = decodeURIComponent(params.name);
+  const regionName = createMemo(() => decodeURIComponent(params.name));
   const regionFish = createMemo(() => {
     if (!fishData()) {
       return [];
     }
-    return getFishByRegion(fishData(), regionName);
+    return getFishByRegion(fishData(), regionName());
   });
   const avgCalories = createMemo(() => calculateAverageCalories(regionFish()));
   const avgFat = createMemo(() => calculateAverageFat(regionFish()));
@@ -23,7 +23,7 @@ const RegionDetail = ({ fishData }) => {
     <div>
       <Navigation fishData={fishData} />
       <main>
-        <h1>{regionName}</h1>
+        <h1>{regionName()}</h1>
 
         <Show when={!fishData.loading} fallback={<div>Loading...</div>}>
           <div class="region-summary">
