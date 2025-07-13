@@ -26,8 +26,11 @@ const Home = ({ fishData }) => {
               {(region) => (
                 <div class="region-item">
                   <h2>{region.name}</h2>
-                  <p>Average Calories: {region.avgCalories.toFixed(1)}</p>
-                  <p>Average Fat: {region.avgFat.toFixed(2)}g</p>
+                  <p>
+                    Average Calories: {region.avgCalories.toFixed(1)} per
+                    serving
+                  </p>
+                  <p>Average Fat: {region.avgFat.toFixed(2)}g per serving</p>
                   <p>{region.fishCount} fish species</p>
                 </div>
               )}
