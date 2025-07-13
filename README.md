@@ -1,28 +1,32 @@
-## Usage
+# ABR Fish Headquarters Selector
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+A web application to help the American Board of Radiology choose
+the best location for their new headquarters based on fish
+nutrition data.
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+## Setup
 
-## Available Scripts
+1. Clone this repository
+2. Install dependencies: `npm install`
+3. Start the API server (see [API
+   setup](https://github.com/theabr-org/coding-challenge-server))
+4. Run the development server: `npm run dev`
+5. Open http://localhost:5173
 
-In the project directory, you can run:
+## Features
 
-### `npm run dev`
+- View all NOAA Fisheries regions with average nutrition data
+- Navigate to detailed views of each region
+- See individual fish species with images and nutritional
+  information
+- Clean, responsive design that works on mobile and desktop
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+## Tech Stack
 
-### `npm run build`
+- SolidJS - Reactive UI framework
+- Vite - Build tool
+- CSS - Custom styling (no frameworks)
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+## Time Spent
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
+~4 hours
