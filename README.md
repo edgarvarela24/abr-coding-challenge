@@ -7,7 +7,8 @@ nutrition data.
 ## Setup
 
 1. Clone this repository
-2. Install dependencies: `npm install`
+2. Install dependencies: `npm install --legacy-peer-deps` \*Note: The `--legacy-peer-deps` flag is needed due to a peer
+   dependency resolution issue between Vite and SolidJS plugins.
 3. Start the API server (see [API
    setup](https://github.com/theabr-org/coding-challenge-server))
 4. Run the development server: `npm run dev`
